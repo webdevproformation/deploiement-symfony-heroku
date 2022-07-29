@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<div class="row">
+    <a href="https://packagist.org/packages/copadia/php-video-url-parser">https://packagist.org/packages/copadia/php-video-url-parser</a>
+</div>
+
+<div class="row">
+    <section class="col-7">
+        <h2>Ajouter un nouveau lien Youtube</h2>
+        {% for info in app.flashes("confirm") %}
+            <div class="alert alert-success">{{info}}</div>
+        {% endfor %}
+        {{form(form)}}
+    </section>
+    <section class="col-5">
+    <h2>Vidéos disponibles</h2>
+    {% for youtube in youtubes %}
+    <article>
+        <h2 class="fs-4">{{ youtube.name }}</h2>
+       {# 
+        <iframe src="https://www.youtube.com/embed/{{ youtube.url }}" title="{{ youtube.name }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-100"></iframe>
+       #}
+       {{ youtube.url | iframe_youtube | raw }}
+    </article>
+    {% endfor %}
+</section>
+</div>
+{% endblock %}
