@@ -12,6 +12,23 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+/**
+heroku login 
+git init
+git add -all
+git commit -m "start"
+heroku create
+echo "web: heroku-php-apache2 public/" > Procfile
+heroku config:set APP_ENV=prod
+heroku addons:create heroku-postgresql:hobby-dev
+jouer les migrations composer.json > scripts
+"compile" : [
+            "php bin/console doctrine:migrations:migrate"
+]
+
+composer require symfony/apache-pack
+ */
+
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
